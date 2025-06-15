@@ -5,73 +5,74 @@
 
 
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None  
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
 
 class LinkedList:
     def __init__(self):
-        self.head = None  
+        self.head = None
 
-    def append(self, value):
-        new_node = Node(value)
+    def append(self, data):
+        new_node = Node(data)
         if self.head is None:
-            self.head = new_node  
+            self.head = new_node
         else:
-            current = self.head
-            while current.next:  
-                current = current.next
-            current.next = new_node  
-
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = new_node
 
     def print_list(self):
-        current = self.head
-        if not current:
-            print("List is empty.")
+        if self.head is None:
+            print("Empty List")
             return
-        while current:
-            print(current.value, end=" -> ")
-            current = current.next
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
         print("None")
 
-    def delete_nth_node(self, n):
-        if not self.head:
-            print("List is empty.")
-            return
-        if n <= 0:
-            print("Invalid position.")
-            return
-        if n == 1:
-            self.head = self.head.next  
-            return
+    def delete_nth(self, n):
+        try:
+            if self.head is None:
+                raise IndexError("Empty List")
 
-        current = self.head
-        for i in range(n - 2):
-            if not current.next:
-                print("Position out of range.")
+            if n <= 0:
+                raise ValueError("Invalid index")
+
+            if n == 1:
+                print(f"Deleting node: {self.head.data}")
+                self.head = self.head.next
                 return
-            current = current.next
 
-        if not current.next:
-            print("Position out of range.")
-            return
+            temp = self.head
+            for i in range(n - 2):
+                if temp.next is None:
+                    raise IndexError("Index out of range")
+                temp = temp.next
 
-        current.next = current.next.next  
+            if temp.next is None:
+                raise IndexError("Index out of range")
+
+            print(f"Deleting node: {temp.next.data}")
+            temp.next = temp.next.next
+
+        except (IndexError, ValueError) as e:
+            print("Error:", e)
+
+
 
 ll = LinkedList()
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.append(40)
+ll.append(34)
+ll.append(12)
+ll.append(9)
+ll.print_list()  
 
-print("Original list:")
-ll.print_list()
 
-print("\nAfter deleting 2nd node:")
-ll.delete_nth_node(2)
-ll.print_list()
-
-print("\nAfter deleting 1st node:")
-ll.delete_nth_node(1)
-ll.print_list()
-
+ll.delete_nth(2) 
+ll.print_list()  
+ll.delete_nth(10) 
+empty_ll = LinkedList()
+empty_ll.delete_nth(1)  
