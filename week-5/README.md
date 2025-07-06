@@ -59,14 +59,14 @@ Example output:
 | Ridge Regression | 0.1237 | 0.9179   |
 | Linear Regression| 0.1253 | 0.9159   |
 
-### 6. 🏁 Final Prediction & Submission
+### 6. Final Prediction & Submission
 - Ridge model was used to predict `SalePrice` on test data
 - Applied `np.expm1()` to reverse the log transformation
 - Saved results in `prediction.csv`
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 | Tool / Library     | Purpose                            |
 |--------------------|------------------------------------|
