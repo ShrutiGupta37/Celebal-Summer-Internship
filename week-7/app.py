@@ -11,9 +11,8 @@ from sklearn.datasets import load_iris
 
 # Load the trained model and feature names
 
-
-MODEL_PATH = 'Celebal-Summer-Internship/week-7/iris_model.pkl'
-FEATURES_PATH = 'Celebal-Summer-Internship/week-7/features.pkl'
+MODEL_PATH = 'iris_model.pkl'
+FEATURES_PATH = 'features.pkl'
 
 # Validate files
 if not os.path.exists(MODEL_PATH):
