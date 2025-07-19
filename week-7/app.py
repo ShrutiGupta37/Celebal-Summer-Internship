@@ -8,7 +8,6 @@ import numpy as np
 with open('Celebal-Summer-Internship/week-7/titanic_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-<<<<<<< HEAD
 st.title("🚢 Titanic Survival Prediction")
 st.write("Enter the passenger details to check the survival prediction:")
 
@@ -17,10 +16,6 @@ pclass = st.selectbox("Passenger Class (1 = Upper, 2 = Middle, 3 = Lower)", [1, 
 sex = st.selectbox("Sex", ["female", "male"])
 age = st.slider("Age", 0, 100, 25)
 fare = st.slider("Fare", 0.0, 600.0, 50.0)
-=======
-MODEL_PATH = 'iris_model.pkl'
-FEATURES_PATH = 'features.pkl'
->>>>>>> ce3dca90a1d6140c9adb7aa9075b8ba3a3e014dc
 
 # Encode sex
 sex_encoded = 0 if sex == "female" else 1
